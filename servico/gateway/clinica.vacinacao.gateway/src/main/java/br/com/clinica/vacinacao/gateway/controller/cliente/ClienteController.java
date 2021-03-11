@@ -1,4 +1,4 @@
-package br.com.clinica.vacinacao.gateway.controller;
+package br.com.clinica.vacinacao.gateway.controller.cliente;
 
 import br.com.clinica.vacinacao.gateway.exceptions.GatewayException;
 import br.com.clinica.vacinacao.gateway.model.Cliente;
@@ -18,24 +18,24 @@ import java.util.Objects;
 
 @Slf4j
 @RestController
-public class ClienteController implements  GatewayApi {
+public class ClienteController implements ClienteApi {
 
     @Autowired
     private ClienteService clienteService;
 
     @Override
     public ResponseEntity<List<Cliente>> getClientes() {
-        log.info("Endpoint para listar clientes (INICIO)");
+        log.info("Gatway Endpoint para listar clientes (INICIO)");
         List<Cliente> list = clienteService.listarClientes();
-        log.info("Endpoint para listar clientes (FIM)");
+        log.info("Gatway Endpoint para listar clientes (FIM)");
         return ResponseEntity.status(HttpStatus.CREATED).body(list);
     }
 
     @Override
     public ResponseEntity<Cliente> getCliente(Long id) {
-        log.info("Endpoint para consultar o cliente (INICIO)");
+        log.info("Gatway Endpoint para consultar o cliente (INICIO)");
         Cliente cliente = clienteService.consultarCliente(id);
-        log.info("Endpoint para consultar o clientes (FIM)");
+        log.info("Gatway Endpoint para consultar o clientes (FIM)");
         return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
     }
 

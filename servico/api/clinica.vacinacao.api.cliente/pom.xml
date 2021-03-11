@@ -9,14 +9,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com</groupId>
-	<artifactId>clinica.vacinacao.gateway</artifactId>
+	<artifactId>clinica.vacinacao.api.cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>clinica.vacinacao.gateway</name>
-	<description>Gateway para as apis clinica vacinacao</description>
+	<name>clinica.vacinacao.api.cliente</name>
+	<description>Api cliente da clinica vacinacao</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<swagger.version>2.9.2</swagger.version>
 		<swagger.annotations.version>1.5.23</swagger.annotations.version>
+		<jdbi.version>3.9.1</jdbi.version>
+		<jdbi.version>3.9.1</jdbi.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -25,8 +27,19 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- dependency swagger -->
@@ -47,16 +60,6 @@
 		</dependency>
 		<!-- finish dependency swagger -->
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 </project>

@@ -1,6 +1,6 @@
-package br.com.clinica.vacinacao.gateway.controller;
+package br.com.clinica.vacinacao.api.cliente.controller;
 
-import br.com.clinica.vacinacao.gateway.model.Cliente;
+import br.com.clinica.vacinacao.api.cliente.model.Cliente;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Api(value = "API de Ajuizamento", produces = MediaType.APPLICATION_JSON_VALUE)
-public interface GatewayApi {
+@Api(value = "API Clientes", produces = MediaType.APPLICATION_JSON_VALUE)
+public interface ClienteApi {
 
     @ApiOperation(value = "Endpoint para listar os clientes.")
     @ApiResponses(value = {
@@ -23,7 +23,7 @@ public interface GatewayApi {
             @ApiResponse(code = 404, message = "Recurso não encontrado."),
             @ApiResponse(code = 500, message = "Erro interno do servidor.")
     })
-    @GetMapping(value = "/v1/clinica/vacinacao/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/api/v1/clinica/vacinacao/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<Cliente>> getClientes();
 
     @ApiOperation(value = "Endpoint para consultar o cliente.")
@@ -34,6 +34,6 @@ public interface GatewayApi {
             @ApiResponse(code = 404, message = "Recurso não encontrado."),
             @ApiResponse(code = 500, message = "Erro interno do servidor.")
     })
-    @GetMapping(value = "/v1/clinica/vacinacao/cliente", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/api/v1/clinica/vacinacao/cliente", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Cliente> getCliente(@RequestParam(value = "id", required = false, defaultValue="0") Long id);
 }
